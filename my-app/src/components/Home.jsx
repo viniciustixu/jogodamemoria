@@ -1,7 +1,10 @@
 import cat from '../assets/images/cat.jpg';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import FooterComponent from './FooterComponent';
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <>
       <header>
@@ -9,11 +12,11 @@ export default function Home() {
         <h1>Memory game</h1>
       </header>
       <main>
-        <button onClick={() => Navigate('/Settings')}>Settings</button>
+        <button onClick={() => navigate('/newgame')}>New Game</button>
+        <button onClick={() => navigate('/settings')}>Settings</button>
+        <button onClick={() => navigate('/about')}>About</button>
       </main>
-      <footer>
-        <p>This website was created by Tixu</p>
-      </footer>
+      <FooterComponent />
     </>
   );
 }
